@@ -1,0 +1,36 @@
+.header {
+  nav {
+    font-size: 24px;
+    font-family: raleway, sans-serif;
+
+    .navbar {
+      color: #6d4833;
+      text-decoration: none;
+    }
+
+    .navbar:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      margin-right: 210px;
+      margin-left: 50px;
+      color: #6d4833;
+    }
+    ul li:first-child {
+      margin-right: 280px;
+    }
+  }
+}
+
+.h1div {
+  text-align: center;
+  padding: 40px 0;
+}
+.footer {
+  margin-bottom: 40px;
+}
