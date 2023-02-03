@@ -16,22 +16,38 @@ export default function RootLayout({ children }) {
           <nav>
             <ul>
               <li>
-                <Link className={styles.navbar} href="/">
+                <Link
+                  data-test-id="products-link"
+                  className={styles.navbar}
+                  href="/"
+                >
                   INDULGE
                 </Link>
               </li>
               <li>
-                <Link className={styles.navbar} href="/doughnut">
+                <Link
+                  data-test-id="product-doughnut"
+                  className={styles.navbar}
+                  href="/doughnut"
+                >
                   Doughnut
                 </Link>
               </li>
               <li>
-                <Link className={styles.navbar} href="/croissant">
+                <Link
+                  data-test-id="product-croissant"
+                  className={styles.navbar}
+                  href="/croissant"
+                >
                   Croissant
                 </Link>
               </li>
               <li>
-                <Link className={styles.navbar} href="/cupcake">
+                <Link
+                  data-test-id="product-cupcake"
+                  className={styles.navbar}
+                  href="/cupcake"
+                >
                   Cupcake
                 </Link>
               </li>
@@ -50,7 +66,6 @@ export default function RootLayout({ children }) {
         {children}
       </body>
       <footer className={styles.footer}>
-        {' '}
         Designed by Liba Shapiro MSc 2023
       </footer>
     </html>
