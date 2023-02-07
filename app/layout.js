@@ -1,6 +1,17 @@
 import './global.scss';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './layout.module.scss';
+
+export const metadata = {
+  title: {
+    default: 'Indulge',
+    template: '%s | Indulge',
+  },
+  icons: {
+    shortcut: '/favicon.ico',
+  },
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -11,7 +22,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body className={styles.body}>
         <header className={styles.header}>
           <nav>
             <ul>
@@ -21,7 +32,13 @@ export default function RootLayout({ children }) {
                   className={styles.navbar}
                   href="/"
                 >
-                  INDULGE
+                  <Image
+                    className={styles.image}
+                    src="/Indulge.png"
+                    alt="indulge logo"
+                    width="200"
+                    height="200"
+                  />
                 </Link>
               </li>
               <li>
@@ -52,7 +69,11 @@ export default function RootLayout({ children }) {
                 </Link>
               </li>
               <li>
-                <Link className={styles.navbar} href="/cannoli">
+                <Link
+                  className={styles.navbar}
+                  data-test-id="product-cannoli"
+                  href="/cannoli"
+                >
                   Cannoli
                 </Link>
               </li>
@@ -60,8 +81,13 @@ export default function RootLayout({ children }) {
           </nav>
         </header>
         <div className={styles.h1div}>
-          <h1> INDULGE</h1>
-          <h1> Because you're worth it</h1>
+          <Image
+            className={styles.imagediv}
+            src="/pastries.jpg"
+            alt="pastries image"
+            width="600"
+            height="200"
+          />
         </div>
         {children}
       </body>
