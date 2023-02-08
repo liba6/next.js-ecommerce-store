@@ -1,26 +1,34 @@
 import Image from 'next/image';
-import { NotFound } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import AddCartButton from '../../AddButtonComponent';
 import { pastries } from '../../database/pastries';
+import styles from './page.module.scss';
+
+// export const metadata = {
+//   title: {pastry.name},
+//   description: 'This is my Pastries page',
+// };
 
 export default function pastryPage(props) {
   const singlePastry = pastries.find((pastry) => {
-    return pastry.name.toLowerCase === props.params.pastryName;
+    return pastry.name.toLowerCase() === props.params.pastryName;
   });
-  console.log(props);
+  console.log('props', props);
+  console.log(pastries);
   if (!singlePastry) {
-    NotFound();
+    notFound();
   }
   return (
-    <div>
+    <div className={styles.pastry}>
       <h1>{singlePastry.name}</h1>
       <Image
-        src={`${singlePastry.name}.jpg`}
+        src={`/${singlePastry.name}.jpg`}
         alt={`${singlePastry.name} image`}
         width="200"
         height="200"
       />
-      <div>{singlePastry.price}</div>;
+      <div>{`Price: $ ${singlePastry.price} `}</div>;
+      <div>{`${singlePastry.description}`}</div>
       <AddCartButton />
     </div>
   );
