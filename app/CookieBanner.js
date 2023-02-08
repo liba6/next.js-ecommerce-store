@@ -1,15 +1,18 @@
+'use client';
+
 import { useState } from 'react';
 
-('use client');
-
 export default function CookieBanner() {
-  const initialValue = JSON.parse(
+  const localStorageValue = JSON.parse(
     window.localStorage.getItem('areCookiesTermsAccepted'),
   );
-  const [isCookieBannerVisible, setIsCookieBannerVisible] =
-    useState(initialValue);
+  const initialState = localStorageValue === null ? false : localStorageValue;
+
+  const [areCookiesTermsAccepted, setAreCookiesTermsAccepted] =
+    useState(initialState);
+
   return (
-    isCookieBannerVisible && (
+    !areCookiesTermsAccepted && (
       <>
         <div>
           Bite into the goodness of our website by starting with our cookies! By
@@ -18,7 +21,11 @@ export default function CookieBanner() {
         </div>
         <button
           onClick={() => {
-            setIsCookieBannerVisible(false);
+            setAreCookiesTermsAccepted(true);
+            window.localStorage.setItem(
+              'areCookiesTermsAccepted',
+              JSON.stringify(true),
+            );
           }}
         >
           Accept
