@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import { NotFound } from 'next/navigation';
+import AddCartButton from '../../AddButtonComponent';
 import { pastries } from '../../database/pastries';
 
 export default function pastryPage(props) {
   const singlePastry = pastries.find((pastry) => {
-    return pastry.firstName.toLowerCase === props.params.pastryName;
+    return pastry.name.toLowerCase === props.params.pastryName;
   });
-
+  console.log(props);
   if (!singlePastry) {
     NotFound();
   }
@@ -20,6 +21,7 @@ export default function pastryPage(props) {
         height="200"
       />
       <div>{singlePastry.price}</div>;
+      <AddCartButton />
     </div>
   );
 }

@@ -13,6 +13,6 @@ export default function getParsedCookie(key) {
   }
 }
 
-export default function setStringifiedCookie(key, value) {
-  Cookies.set(key, JSON.stringify(value))
+export function setStringifiedCookie(key, value) {
+  Cookies.set(key, JSON.stringify(value));
 }

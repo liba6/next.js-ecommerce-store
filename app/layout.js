@@ -8,9 +8,6 @@ export const metadata = {
     default: 'Indulge',
     template: '%s | Indulge',
   },
-  icons: {
-    shortcut: '/favicon.ico',
-  },
 };
 
 export default function RootLayout({ children }) {
@@ -36,59 +33,66 @@ export default function RootLayout({ children }) {
                     className={styles.image}
                     src="/Indulge.png"
                     alt="indulge logo"
-                    width="200"
-                    height="200"
+                    width="300"
+                    height="300"
                   />
                 </Link>
               </li>
               <li>
                 <Link
-                  data-test-id="product-doughnut"
                   className={styles.navbar}
-                  href="/doughnut"
+                  data-test-id="product-eclair"
+                  href="pastries/eclair"
                 >
-                  Doughnut
-                </Link>
-              </li>
-              <li>
-                <Link
-                  data-test-id="product-croissant"
-                  className={styles.navbar}
-                  href="/croissant"
-                >
-                  Croissant
+                  Eclair
                 </Link>
               </li>
               <li>
                 <Link
                   data-test-id="product-cupcake"
                   className={styles.navbar}
-                  href="/cupcake"
+                  href="pastries/cupcake"
                 >
                   Cupcake
                 </Link>
               </li>
               <li>
                 <Link
+                  data-test-id="product-croissant"
                   className={styles.navbar}
-                  data-test-id="product-cannoli"
-                  href="/cannoli"
+                  href="pastries/croissant"
                 >
-                  Cannoli
+                  Croissant
+                </Link>
+              </li>
+              <li>
+                <Link
+                  data-test-id="product-macaroon"
+                  className={styles.navbar}
+                  href="pastries/macaroon"
+                >
+                  Macaroon
                 </Link>
               </li>
             </ul>
+            <span className={styles.cartContainer}>
+              <Link
+                data-test-id="product-cart"
+                className={styles.navbar}
+                href="pastries/cart"
+              >
+                <Image
+                  className={styles.cart}
+                  src="/cart.png"
+                  alt="cart icon"
+                  height="100"
+                  width="100"
+                />
+              </Link>
+            </span>
           </nav>
         </header>
-        <div className={styles.h1div}>
-          <Image
-            className={styles.imagediv}
-            src="/pastries.jpg"
-            alt="pastries image"
-            width="600"
-            height="200"
-          />
-        </div>
+        <div className={styles.h1div} />
         {children}
       </body>
       <footer className={styles.footer}>

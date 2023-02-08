@@ -4,6 +4,11 @@ import { pastries } from '../database/pastries';
 
 // import styles from './page.module.scss';
 
+export const metadata = {
+  title: 'Pastries',
+  description: 'This is my Pastries page',
+};
+
 export default function PastriesPage() {
   return (
     <>
