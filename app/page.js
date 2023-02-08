@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import styles from './page.module.scss';
 import Link from 'next/link';
+import styles from './page.module.scss';
 
 export const metadata = {
   description: 'This is my Home Page',
@@ -30,7 +30,7 @@ export default function HomePage() {
         </Link>
       </div>
       <div>
-        <Link href="/pastries/croissant">
+        <Link data-test-id="product-croissant" href="/pastries/croissant">
           <Image
             src="/croissant.jpg"
             alt="croissant image"
