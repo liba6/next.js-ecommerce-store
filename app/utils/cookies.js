@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 
 // to get values from cookies
-export default function getParsedCookie(key) {
+export function getParsedCookie(key) {
   const cookieValue = Cookies.get(key);
   if (!cookieValue) {
     return undefined;

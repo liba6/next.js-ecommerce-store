@@ -1,9 +1,10 @@
 'use client';
 
-// import PastriesPage from './page';
+import PastriesPage from './page';
 import { getParsedCookie, setStringifiedCookie } from './utils/cookies';
 
 export default function AddCartButton(props) {
+  console.log(props);
   return (
     <div>
       <button
