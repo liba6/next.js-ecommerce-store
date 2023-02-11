@@ -79,7 +79,7 @@ export default function RootLayout({ children }) {
             </ul>
             <span className={styles.cartContainer}>
               <Link
-                data-test-id="product-cart"
+                data-test-id="cart-link"
                 className={styles.navbar}
                 href="/pastries/cart"
               >

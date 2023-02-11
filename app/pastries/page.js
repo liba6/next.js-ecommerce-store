@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { pastries } from '../database/pastries';
@@ -10,6 +11,11 @@ export const metadata = {
 };
 
 export default function PastriesPage() {
+  const pastryCookie = cookies().get('pastryCookie');
+
+  const pastryCookieParsed = JSON.parse(pastryCookie.value);
+  console.log('pastryCookie', pastryCookie);
+  console.log('pastryCookieparsed', pastryCookieParsed);
   return (
     <>
       <h1>Pastries</h1>
