@@ -26,6 +26,7 @@ export default function Pastry(props) {
           <p>{props.pastry.description}</p>
           <div data-test-id="product-price">{`Price: $ ${props.pastry.price} `}</div>
           <input
+            data-test-id="product-quantity"
             type="number"
             name="quantity"
             min="1"
@@ -37,6 +38,7 @@ export default function Pastry(props) {
           />
           <div data-test-id="product-add-to-cart">
             <button
+              data-test-id="product-add-to-cart"
               onClick={() => {
                 const pastriesInCookies = getParsedCookie('pastryCookie');
 
