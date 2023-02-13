@@ -6,8 +6,8 @@ import styles from './page.module.scss';
 
 export default function Pastry(props) {
   const [inputValue, setInputValue] = useState(1);
-  console.log('inputvalue', inputValue);
-  console.log('stringified', JSON.parse(inputValue));
+  // console.log('inputvalue', inputValue);
+  // console.log('stringified', JSON.parse(inputValue));
 
   return (
     <div>
@@ -31,6 +31,7 @@ export default function Pastry(props) {
             name="quantity"
             min="1"
             max="10"
+            pattern="[1-9]"
             value={inputValue}
             onChange={(event) => {
               setInputValue(event.target.value);
@@ -40,10 +41,10 @@ export default function Pastry(props) {
             <button
               data-test-id="product-add-to-cart"
               onClick={() => {
-                const pastriesInCookies = getParsedCookie('pastryCookie');
+                const pastriesInCookies = getParsedCookie('cart');
 
                 if (!pastriesInCookies) {
-                  setStringifiedCookie('pastryCookie', [
+                  setStringifiedCookie('cart', [
                     { id: props.pastry.id, amount: inputValue },
                   ]);
                   return;
@@ -61,7 +62,7 @@ export default function Pastry(props) {
                     amount: inputValue,
                   });
                 }
-                setStringifiedCookie('pastryCookie', pastriesInCookies);
+                setStringifiedCookie('cart', pastriesInCookies);
               }}
             >
               Add to Cart

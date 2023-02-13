@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
                 <Link
                   className={styles.navbar}
                   data-test-id="product-eclair"
-                  href="pastries/eclair"
+                  href="pastries/1"
                 >
                   Eclair
                 </Link>
@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
                 <Link
                   data-test-id="product-cupcake"
                   className={styles.navbar}
-                  href="/pastries/cupcake"
+                  href="/pastries/3"
                 >
                   Cupcake
                 </Link>
@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
                 <Link
                   data-test-id="product-croissant"
                   className={styles.navbar}
-                  href="/pastries/croissant"
+                  href="/pastries/2"
                 >
                   Croissant
                 </Link>
@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
                 <Link
                   data-test-id="product-macaron"
                   className={styles.navbar}
-                  href="/pastries/macaron"
+                  href="/pastries/4"
                 >
                   Macaron
                 </Link>
@@ -81,7 +81,7 @@ export default function RootLayout({ children }) {
               <Link
                 data-test-id="cart-link"
                 className={styles.navbar}
-                href="/pastries/cart"
+                href="/cart"
               >
                 <Image
                   className={styles.cart}

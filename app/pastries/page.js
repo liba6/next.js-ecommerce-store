@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getPastries } from '../database/pastries';
+import { getPastries } from '../../database/pastries';
 
 // import styles from './page.module.scss';
 
@@ -11,16 +11,16 @@ export const metadata = {
 };
 
 export default async function PastriesPage() {
-  const pastryCookie = cookies().get('pastryCookie');
+  //   const pastryCookie = cookies().get('pastryCookie');
 
-  const pastryCookieParsed = JSON.parse(pastryCookie.value);
+  //   const pastryCookieParsed = JSON.parse(pastryCookie.value);
   // console.log('pastryCookie', pastryCookie);
   // console.log('pastryCookieparsed', pastryCookieParsed);
 
   const pastries = await getPastries();
-
+  console.log(pastries);
   return (
-    <>
+    <div>
       <h1>Pastries</h1>
       <main>
         {pastries.map((pastry) => {
@@ -31,7 +31,7 @@ export default async function PastriesPage() {
               </Link>
               <Link href={`/pastries/${pastry.id}`}>
                 <Image
-                  src={`${pastry.name}.png`}
+                  src={`/${pastry.name}.jpg`}
                   alt={`${pastry.name} image`}
                   height="200"
                   width="200"
@@ -42,6 +42,6 @@ export default async function PastriesPage() {
           );
         })}
       </main>
-    </>
+    </div>
   );
 }
