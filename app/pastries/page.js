@@ -1,4 +1,3 @@
-import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPastries } from '../../database/pastries';

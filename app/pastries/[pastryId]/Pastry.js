@@ -15,6 +15,7 @@ export default function Pastry(props) {
       <section className={styles.imagedesc}>
         <div>
           <Image
+            className={styles.img}
             data-test-id="product-image"
             src={`/${props.pastry.name}.jpg`}
             alt={`${props.pastry}.name} image`}
@@ -22,7 +23,7 @@ export default function Pastry(props) {
             height="200"
           />
         </div>
-        <div>
+        <div className={styles.desc}>
           <p>{props.pastry.description}</p>
           <div data-test-id="product-price">{`Price: $ ${props.pastry.price} `}</div>
           <input
