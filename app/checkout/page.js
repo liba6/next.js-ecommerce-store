@@ -1,4 +1,10 @@
 // Privacy: don't save user information (payment or other personal information) anywhere (unless you have a privacy policy and are creating a real ecommerce store)
+import Link from 'next/link';
+
+export const metadata = {
+  title: 'Checkout',
+  description: 'This is my checkout page',
+};
 
 export default function Checkout() {
   return (
@@ -60,7 +66,9 @@ export default function Checkout() {
         id="securityCode"
         required
       />
-      <button data-test-id="checkout-confirm-order">Confirm Order</button>
+      <Link href="/thanks">
+        <button data-test-id="checkout-confirm-order">Confirm Order</button>
+      </Link>
     </>
   );
 }

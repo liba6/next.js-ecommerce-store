@@ -1,6 +1,7 @@
 import styles from './page.module.scss';
 import { cookies } from 'next/headers';
 import { pastriesList } from '../../database/pastries';
+import Link from 'next/link';
 
 // import { getParsedCookie, setStringifiedCookie } from '../utils/cookies';
 // get the cookies
@@ -39,14 +40,18 @@ export default function Cart() {
       <h1 className={styles.h1}> Shopping Cart</h1>
       {pastriesWithAmt.map((pastry) => {
         return (
-          <div key={pastry.id}>
-            <div>{pastry.name}</div>
-            <div> {pastry.price} </div>
-            <h2>{pastry.amount}</h2>
+          <div key={pastry.id} className={styles.product}>
+            {pastry.name}
+            <div>Price: {pastry.price} </div>
+            <h2>Quantity: {pastry.amount}</h2>
             <button>Remove from Cart</button>
           </div>
         );
       })}
+      <span className={styles.totalAmt}>Total Amount: </span>
+      <Link href="/checkout">
+        <button>Checkout</button>
+      </Link>
     </div>
   );
 }
