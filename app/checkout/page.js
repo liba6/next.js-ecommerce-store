@@ -1,5 +1,6 @@
 // Privacy: don't save user information (payment or other personal information) anywhere (unless you have a privacy policy and are creating a real ecommerce store)
 import Link from 'next/link';
+import styles from './page.module.scss';
 
 export const metadata = {
   title: 'Checkout',
@@ -8,25 +9,52 @@ export const metadata = {
 
 export default function Checkout() {
   return (
-    <>
+    <div className={styles.body}>
       <h1>Total:</h1>
       <label htmlFor="firstName">First Name:</label>
-      <input data-test-id="checkout-first-name" id="firstName" required />
+      <input
+        className={styles.input}
+        data-test-id="checkout-first-name"
+        id="firstName"
+        required
+      />
 
       <label htmlFor="lastName">Last Name:</label>
-      <input data-test-id="checkout-last-name" id="lastName" required />
+      <input
+        className={styles.input}
+        data-test-id="checkout-last-name"
+        id="lastName"
+        required
+      />
 
       <label htmlFor="email">Email:</label>
-      <input data-test-id="checkout-email" id="email" type="email" required />
+      <input
+        className={styles.input}
+        data-test-id="checkout-email"
+        id="email"
+        type="email"
+        required
+      />
 
       <label htmlFor="address">Address:</label>
-      <input data-test-id="checkout-address" id="address" required />
+      <input
+        className={styles.input}
+        data-test-id="checkout-address"
+        id="address"
+        required
+      />
 
       <label htmlFor="city">City:</label>
-      <input data-test-id="checkout-city" id="city" required />
+      <input
+        className={styles.input}
+        data-test-id="checkout-city"
+        id="city"
+        required
+      />
 
       <label htmlFor="postalCode">Postal Code:</label>
       <input
+        className={styles.input}
         data-test-id="checkout-postal-code"
         id="postalCode"
         type="number"
@@ -34,10 +62,16 @@ export default function Checkout() {
       />
 
       <label htmlFor="country">Country:</label>
-      <input data-test-id="checkout-country" id="country" required />
+      <input
+        className={styles.input}
+        data-test-id="checkout-country"
+        id="country"
+        required
+      />
 
       <label htmlFor="cc">Credit Cart Number:</label>
       <input
+        className={styles.input}
         data-test-id="checkout-credit-card"
         id="cc"
         type="tel"
@@ -51,6 +85,7 @@ export default function Checkout() {
 
       <label htmlFor="expirationDate">Expires:</label>
       <input
+        className={styles.input}
         data-test-id="checkout-expiration-date"
         type="number"
         placeholder="MM / YY"
@@ -61,6 +96,7 @@ export default function Checkout() {
 
       <label htmlFor="securityCode">Security Code:</label>
       <input
+        className={styles.input}
         data-test-id="checkout-security-code"
         type="password"
         id="securityCode"
@@ -69,6 +105,6 @@ export default function Checkout() {
       <Link href="/thanks">
         <button data-test-id="checkout-confirm-order">Confirm Order</button>
       </Link>
-    </>
+    </div>
   );
 }

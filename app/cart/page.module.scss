@@ -6,15 +6,35 @@
 
 .product {
   display: flex;
-  padding: 20px;
+  padding: 30px;
   justify-content: space-between;
   width: 800px;
   align-items: center;
   margin-left: 270px;
-  font-size: 18px;
+  font-size: 24px;
 }
 .totalAmt {
-  margin-left: 570px;
-  padding-top: 40px;
+  margin-left: 545px;
+  padding-top: 60px;
   font-size: 30px;
+}
+
+.remove {
+  padding: 8px;
+  border-radius: 8px;
+  font-family: raleway;
+  border: 2px solid #6d4833;
+}
+
+.checkout {
+  border-radius: 8px;
+  border: 2px solid #6d4833;
+  justify-content: center;
+  padding: 15px;
+  font-family: raleway;
+  margin-right: 580px;
+  margin-left: 580px;
+  margin-top: 40px;
+  width: 200px;
+  font-size: 18px;
 }

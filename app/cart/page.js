@@ -2,6 +2,8 @@ import styles from './page.module.scss';
 import { cookies } from 'next/headers';
 import { getPastries } from '../../database/pastries';
 import Link from 'next/link';
+import Image from 'next/image';
+import RemoveFromCart from './../RemoveFromCart';
 
 export const metadata = {
   title: 'Cart',
@@ -31,40 +33,63 @@ export default async function Cart() {
     }
     return pastryWithAmt;
   });
+
+  const orderedPastries = [];
+  pastriesWithAmt.map((pastry) => {
+    return pastry.amount > 0 ? orderedPastries.push(pastry) : null;
+  });
+  console.log('pastriesonly', orderedPastries);
+
   const totalCost = pastriesWithAmt.reduce((prevCost, currentCost) => {
     return Number(prevCost) + Number(currentCost.amount * currentCost.price);
   }, 0);
 
-  const totalPrice = pastriesWithAmt.map((pastryAmt) => {
-    let price = 0;
-    return (price += pastryAmt.amount);
-  });
-
   // const totalProducts = pastriesWithAmt.reduce((prevAmt, currentAmt) => {
   //   return Number(prevAmt) + Number(currentAmt.amount);
   // }, 0);
-  // console.log(totalProducts, 'totalProduct');
-  //console.log('pastries', pastriesWithAmt);
-  console.log('totalCost', totalCost);
-  console.log('totaldollars', totalCost / 100);
-  console.log('totalprice', totalPrice);
 
   return (
     <div>
       <h1 className={styles.h1}> Shopping Cart</h1>
-      {pastriesWithAmt.map((pastry) => {
+      {orderedPastries.map((pastry) => {
         return (
-          <div key={pastry.id} className={styles.product}>
+          <div
+            key={pastry.id}
+            className={styles.product}
+            data-test-id="cart-product-{pastry.id}"
+          >
+            <Image
+              className={styles.img}
+              data-test-id="product-image"
+              src={`/${pastry.name}.jpg`}
+              alt={`${pastry}.name} image`}
+              width="150"
+              height="150"
+            />
             {pastry.name}
-            <div>Price: {pastry.price / 100} </div>
-            <h2>Quantity: {pastry.amount}</h2>
-            <button>Remove from Cart</button>
+            <div>Price: ${pastry.price / 100} </div>
+            <div data-test-id="cart-product-quantity-{pastry.id}">
+              Quantity: {pastry.amount}
+            </div>
+            <button
+              data-test-id="cart-product-remove-{pastry.id}"
+              className={styles.remove}
+              // onClick={<RemoveFromCart />//}
+            >
+              Remove{' '}
+            </button>
           </div>
         );
       })}
-      <span className={styles.totalAmt}>Total Amount: ${totalCost / 100}</span>
+      <br />
+      <span className={styles.totalAmt} data-test-id="cart-total">
+        Total Amount: ${totalCost / 100}
+      </span>
+      <br />
       <Link href="/checkout">
-        <button>Checkout</button>
+        <button className={styles.checkout} data-test-id="cart-checkout">
+          Checkout
+        </button>
       </Link>
     </div>
   );

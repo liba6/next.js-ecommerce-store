@@ -15,7 +15,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const pastries = await getPastries();
-  //console.log(pastries);
+  // console.log(pastries);
   return (
     <html lang="en">
       <head>
@@ -96,9 +96,9 @@ export default async function RootLayout({ children }) {
                 />
               </Link>
             </span>
-            <div className={styles.cartCount}>
+            <p data-test-id="cart-count" className={styles.cartCount}>
               <CartCount />
-            </div>
+            </p>
           </nav>
         </header>
         <div className={styles.h1div} />

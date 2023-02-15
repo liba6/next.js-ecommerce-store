@@ -1,9 +1,7 @@
 import { cookies } from 'next/headers';
-// import { useRouter } from 'next/navigation';
 
 export default function CartCount() {
   const cart = cookies().get('cart');
-  // const router = useRouter();
 
   let cartParsed = [];
 
@@ -14,7 +12,6 @@ export default function CartCount() {
   const totalProducts = cartParsed.reduce((prevAmt, currentAmt) => {
     return Number(prevAmt) + Number(currentAmt.amount);
   }, 0);
-  // router.refresh();
 
-  return <div>{totalProducts}</div>;
+  return <span>{totalProducts}</span>;
 }
