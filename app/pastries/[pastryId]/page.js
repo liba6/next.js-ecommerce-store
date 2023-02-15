@@ -6,6 +6,8 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(props) {
   const singlePastry = await getPastry(props.params.pastryId);
+  console.log(props.params.pastryId);
+
   return {
     title: `${singlePastry.name} page`,
     description: ` A single page dedicated to ${singlePastry.name}`,

@@ -3,9 +3,11 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { getParsedCookie, setStringifiedCookie } from '../../utils/cookies';
 import styles from './page.module.scss';
+import { useRouter } from 'next/navigation';
 
 export default function Pastry(props) {
   const [inputValue, setInputValue] = useState('1');
+  const router = useRouter();
   // console.log('inputvalue', inputValue);
   // console.log('stringified', JSON.parse(inputValue));
   return (
@@ -27,7 +29,7 @@ export default function Pastry(props) {
           <div
             className={styles.price}
             data-test-id="product-price"
-          >{`Price: $ ${props.pastry.price} `}</div>
+          >{`Price: $ ${props.pastry.price / 100} `}</div>
           <section className={styles.tabs}>
             <input
               className={styles.buttons}
@@ -64,7 +66,7 @@ export default function Pastry(props) {
 
                   if (foundPastry) {
                     foundPastry.amount =
-                      foundPastry.amount + Number(inputValue);
+                      Number(foundPastry.amount) + Number(inputValue);
                   } else {
                     pastriesInCookies.push({
                       id: props.pastry.id,
@@ -72,6 +74,7 @@ export default function Pastry(props) {
                     });
                   }
                   setStringifiedCookie('cart', pastriesInCookies);
+                  router.refresh();
                 }}
               >
                 Add to Cart
