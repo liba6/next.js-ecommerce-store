@@ -4,8 +4,25 @@ import { useState } from 'react';
 import styles from './page.module.scss';
 
 export default function CheckoutComponent() {
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
+  const [state, setState] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    address: '',
+    city: '',
+    postalCode: '',
+    country: '',
+    cc: '',
+    exp: '',
+    security: '',
+  });
 
+  function handleChange(event) {
+    const value = event.target.value;
+    setState({ ...state, [event.target.name]: value });
+  }
+  console.log('state', state);
   return (
     <>
       <form className={styles.form}>
@@ -15,6 +32,9 @@ export default function CheckoutComponent() {
           data-test-id="checkout-first-name"
           id="firstName"
           required
+          name="firstName"
+          value={state.firstName}
+          onChange={handleChange}
         />
 
         <label htmlFor="lastName">Last Name:</label>
@@ -22,6 +42,9 @@ export default function CheckoutComponent() {
           className={styles.input}
           data-test-id="checkout-last-name"
           id="lastName"
+          name="lastName"
+          value={state.lastName}
+          onChange={handleChange}
           required
         />
 
@@ -32,8 +55,9 @@ export default function CheckoutComponent() {
           id="email"
           type="email"
           required
-          value={email}
-          onChange={(event) => setEmail(event.target.email)}
+          name="email"
+          value={state.email}
+          onChange={handleChange}
         />
 
         <label htmlFor="address">Address:</label>
@@ -41,6 +65,9 @@ export default function CheckoutComponent() {
           className={styles.input}
           data-test-id="checkout-address"
           id="address"
+          name="address"
+          value={state.address}
+          onChange={handleChange}
           required
         />
 
@@ -49,6 +76,9 @@ export default function CheckoutComponent() {
           className={styles.input}
           data-test-id="checkout-city"
           id="city"
+          name="city"
+          value={state.city}
+          onChange={handleChange}
           required
         />
 
@@ -58,6 +88,9 @@ export default function CheckoutComponent() {
           data-test-id="checkout-postal-code"
           id="postalCode"
           type="number"
+          name="postalCode"
+          value={state.postalCode}
+          onChange={handleChange}
           required
         />
 
@@ -66,6 +99,9 @@ export default function CheckoutComponent() {
           className={styles.input}
           data-test-id="checkout-country"
           id="country"
+          name="country"
+          value={state.country}
+          onChange={handleChange}
           required
         />
 
@@ -81,6 +117,9 @@ export default function CheckoutComponent() {
           maxLength="19"
           placeholder="xxxx xxxx xxxx xxxx"
           required
+          name="cc"
+          value={state.cc}
+          onChange={handleChange}
         />
 
         <label htmlFor="expirationDate">Expires:</label>
@@ -92,6 +131,9 @@ export default function CheckoutComponent() {
           maxLength="5"
           id="expirationDate"
           required
+          name="exp"
+          value={state.exp}
+          onChange={handleChange}
         />
 
         <label htmlFor="securityCode">Security Code:</label>
@@ -101,6 +143,9 @@ export default function CheckoutComponent() {
           type="password"
           id="securityCode"
           required
+          name="security"
+          value={state.security}
+          onChange={handleChange}
         />
       </form>
       <div className={styles.buttoncontainer}>
@@ -108,7 +153,18 @@ export default function CheckoutComponent() {
           <button
             className={styles.confirm}
             data-test-id="checkout-confirm-order"
-            disabled={!email}
+            disabled={
+              !state.email ||
+              !state.firstName ||
+              !state.lastName ||
+              !state.exp ||
+              !state.security ||
+              !state.cc ||
+              !state.address ||
+              !state.city ||
+              !state.country ||
+              !state.postalCode
+            }
           >
             Confirm Order
           </button>
