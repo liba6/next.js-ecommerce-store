@@ -1,53 +1,14 @@
-// import Link from 'next/link';
+'use client';
+import Link from 'next/link';
+import { useState } from 'react';
 import styles from './page.module.scss';
-import CheckoutComponent from './CheckoutComponent';
-import { cookies } from 'next/headers';
-import { getPastries } from '../../database/pastries';
 
-export const metadata = {
-  title: 'Checkout',
-  description: 'This is my checkout page',
-};
-
-export default async function Checkout() {
-  const cart = cookies().get('cart');
-
-  let cartParsed = [];
-
-  if (cart) {
-    cartParsed = JSON.parse(cart.value);
-  }
-
-  const pastries = await getPastries();
-
-  const pastriesWithAmt = pastries.map((pastry) => {
-    const pastryWithAmt = { ...pastry, amount: 0 };
-
-    const pastryInCookie = cartParsed.find(
-      (pastryObject) => pastry.id === pastryObject.id,
-    );
-
-    if (pastryInCookie) {
-      pastryWithAmt.amount = pastryInCookie.amount;
-    }
-    return pastryWithAmt;
-  });
-
-  const orderedPastries = [];
-  pastriesWithAmt.map((pastry) => {
-    return pastry.amount > 0 ? orderedPastries.push(pastry) : null;
-  });
-  // console.log('pastriesonly', orderedPastries);
-
-  const totalCost = pastriesWithAmt.reduce((prevCost, currentCost) => {
-    return Number(prevCost) + Number(currentCost.amount * currentCost.price);
-  }, 0);
+export default function CheckoutComponent() {
+  const [email, setEmail] = useState('');
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.h1}>Total: $ {totalCost / 100}</h1>
-      <CheckoutComponent />
-      {/* <form className={styles.form}>
+    <>
+      <form className={styles.form}>
         <label htmlFor="firstName">First Name:</label>
         <input
           className={styles.input}
@@ -71,6 +32,8 @@ export default async function Checkout() {
           id="email"
           type="email"
           required
+          value={email}
+          onChange={(event) => setEmail(event.target.email)}
         />
 
         <label htmlFor="address">Address:</label>
@@ -145,11 +108,12 @@ export default async function Checkout() {
           <button
             className={styles.confirm}
             data-test-id="checkout-confirm-order"
+            disabled={!email}
           >
             Confirm Order
           </button>
         </Link>
-      </div> */}
-    </div>
+      </div>
+    </>
   );
 }

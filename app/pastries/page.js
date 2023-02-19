@@ -27,7 +27,10 @@ export default async function PastriesPage() {
           {pastries.map((pastry) => {
             return (
               <div key={pastry.id}>
-                <Link href={`/pastries/${pastry.id}`}>
+                <Link
+                  data-test-id="product-{pastry.id}"
+                  href={`/pastries/${pastry.id}`}
+                >
                   <h2>{pastry.name}</h2>
                 </Link>
                 <Link href={`/pastries/${pastry.id}`}>

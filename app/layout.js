@@ -46,6 +46,15 @@ export default async function RootLayout({ children }) {
               </li>
               <li>
                 <Link
+                  data-test-id="products-link"
+                  className={styles.products}
+                  href="/pastries"
+                >
+                  P
+                </Link>
+              </li>
+              <li>
+                <Link
                   className={styles.navbar}
                   data-test-id="product-eclair"
                   href={`pastries/${pastries[0].id}`}

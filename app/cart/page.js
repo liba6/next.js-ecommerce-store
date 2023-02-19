@@ -71,7 +71,11 @@ export default async function Cart() {
             <div data-test-id="cart-product-quantity-{pastry.id}">
               Quantity: {pastry.amount}
             </div>
-            <RemoveFromCart cartParsed={cartParsed} pastry={pastry} />
+            <RemoveFromCart
+              cartParsed={cartParsed}
+              pastry={pastry}
+              data-test-id="cart-product-remove-<product id>"
+            />
           </div>
         );
       })}

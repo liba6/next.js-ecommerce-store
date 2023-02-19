@@ -1,4 +1,5 @@
 'use client';
+import styles from './layout.module.scss';
 
 import { useState } from 'react';
 
@@ -13,24 +14,26 @@ export default function CookieBanner() {
 
   return (
     !areCookiesTermsAccepted && (
-      <>
-        <div>
+      <div className={styles.popup}>
+        <span className={styles.popuptext}>
           Bite into the goodness of our website by starting with our cookies! By
           clicking 'accept', you're giving us permission to add a little extra
           sweetness to your browsing experience.
-        </div>
-        <button
-          onClick={() => {
-            setAreCookiesTermsAccepted(true);
-            window.localStorage.setItem(
-              'areCookiesTermsAccepted',
-              JSON.stringify(true),
-            );
-          }}
-        >
-          Accept
-        </button>
-      </>
+          <br />
+          <button
+            className={styles.btn}
+            onClick={() => {
+              setAreCookiesTermsAccepted(true);
+              window.localStorage.setItem(
+                'areCookiesTermsAccepted',
+                JSON.stringify(true),
+              );
+            }}
+          >
+            Accept
+          </button>
+        </span>
+      </div>
     )
   );
 }
