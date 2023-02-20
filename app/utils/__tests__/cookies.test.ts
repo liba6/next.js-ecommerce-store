@@ -1,0 +1,95 @@
+import {
+  deleteCookie,
+  getParsedCookie,
+  setStringifiedCookie,
+  stringifyCookieValue,
+} from '../cookies';
+
+// This is closest to what we want to test
+// testing a single, small function that doesn't depend on a library
+test('stringify a cookie value', () => {
+  expect(stringifyCookieValue([{ id: 1, amount: 2 }])).toBe(
+    '[{"id":1,"amount":2}]',
+  );
+});
+
+test('set, get and delete a cookie', () => {
+  const cookie = {
+    key: 'cart',
+    value: [{ id: 1, amount: 2 }],
+  };
+  // First, make sure that the return value of the function is undefined
+  // Use .toBe to compare primitive values
+  expect(getParsedCookie(cookie.key)).toBe(undefined);
+  // expect(getParsedCookie(cookie.key)).toBeUndefined();
+
+  // Set a cookie
+  expect(() => setStringifiedCookie(cookie.key, cookie.value)).not.toThrow();
+
+  // Use .toStrictEqual to test that objects have the same type as well as structure
+  expect(getParsedCookie(cookie.key)).toStrictEqual(cookie.value);
+
+  // Best practice: clear state after test to bring the system back to the initial state
+  expect(deleteCookie(cookie.key)).toBe(undefined);
+  expect(getParsedCookie(cookie.key)).toBe(undefined);
+});
+
+// Unit test - to add or remove info from cookie
+
+test('add or remove info from cookie', () => {
+  const newItem1 = { id: 1, amount: 1 };
+  const newItem2 = { id: 1, amount: -5 };
+
+  const cookie = {
+    key: 'cart',
+    value: [{ id: newItem1.id, amount: newItem1.amount }],
+  };
+
+  // to add a cookie when no cookie exists
+  expect(getParsedCookie(cookie.key)).toBe(undefined);
+  expect(() => setStringifiedCookie(cookie.key, cookie.value)).not.toThrow();
+  expect(getParsedCookie(cookie.key)).toStrictEqual(cookie.value);
+
+  // to add negative amount in cookie when no cookie exists
+  expect(deleteCookie(cookie.key)).toBe(undefined);
+  expect(getParsedCookie(cookie.key)).toBe(undefined);
+  expect(() => setStringifiedCookie(cookie.key, [newItem2])).not.toThrow();
+  expect(getParsedCookie(cookie.key)).toStrictEqual([newItem2]);
+
+  // we add new cookie to existing cookie
+
+  const newItem3 = { id: 2, amount: 3 };
+  const newItem4 = { id: 2, amount: -3 };
+  const newItem5 = { id: 2, amount: 5 };
+
+  const cookie2 = {
+    key: 'cart',
+    value: [
+      { id: newItem2.id, amount: 0 },
+      { id: newItem1.id, amount: 0 },
+    ],
+  };
+  expect(() => setStringifiedCookie(cookie2.key, [{ id:2, amount: 0 },
+    { id: newItem1.id, amount: 0 },,newItem3])).not.toThrow();
+  expect(getParsedCookie(cookie2.key)).toStrictEqual([
+    { id: newItem2.id, amount: 0 },
+    { id: newItem1.id, amount: 0 },
+    { id: newItem3.id, amount: newItem3.amount },
+  ]);
+
+  // update a cookie
+
+  expect(() => setStringifiedCookie(cookie2.key, [{cookie2.value}, {}])).not.toThrow();
+  expect(getParsedCookie(cookie2.key)).toStrictEqual([
+    { id: newItem2.id, amount: 0 },
+    { id: newItem1.id, amount: 0 },
+    //   { id: newItem3.id, amount: newItem5.amount },
+    //  expect(() => setStringifiedCookie(cookie2.key, [newItem3])).not.toThrow();
+  ]);
+});
+
+// // test cart sum function
+
+// test('add sum total in cart', () => {
+  const;
+ });

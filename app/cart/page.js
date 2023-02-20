@@ -38,7 +38,6 @@ export default async function Cart() {
   pastriesWithAmt.map((pastry) => {
     return pastry.amount > 0 ? orderedPastries.push(pastry) : null;
   });
-  // console.log('pastriesonly', orderedPastries);
 
   const totalCost = pastriesWithAmt.reduce((prevCost, currentCost) => {
     return Number(prevCost) + Number(currentCost.amount * currentCost.price);
@@ -54,7 +53,7 @@ export default async function Cart() {
       {orderedPastries.map((pastry) => {
         return (
           <div
-            key={pastry.id}
+            key={`pastry - ${pastry.id}`}
             className={styles.product}
             data-test-id="cart-product-{pastry.id}"
           >

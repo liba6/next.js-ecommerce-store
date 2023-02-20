@@ -50,10 +50,10 @@ export default function Pastry(props) {
                 data-test-id="product-add-to-cart"
                 onClick={() => {
                   const pastriesInCookies = getParsedCookie('cart');
-
+                  const adjustedInput = inputValue > 0 ? inputValue : 0;
                   if (!pastriesInCookies) {
                     setStringifiedCookie('cart', [
-                      { id: props.pastry.id, amount: Number(inputValue) },
+                      { id: props.pastry.id, amount: Number(adjustedInput) },
                     ]);
                     return;
                   }
@@ -66,11 +66,11 @@ export default function Pastry(props) {
 
                   if (foundPastry) {
                     foundPastry.amount =
-                      Number(foundPastry.amount) + Number(inputValue);
+                      Number(foundPastry.amount) + Number(adjustedInput);
                   } else {
                     pastriesInCookies.push({
                       id: props.pastry.id,
-                      amount: inputValue,
+                      amount: adjustedInput,
                     });
                   }
                   setStringifiedCookie('cart', pastriesInCookies);
