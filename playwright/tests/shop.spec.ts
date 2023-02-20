@@ -7,7 +7,7 @@ test('add to cart, change quantity, remove from cart', async ({ page }) => {
 
   await page.getByRole('link', { name: 'Macaron' }).click();
 
-  await expect(page).toHaveURL('https://localhost:3000/pastries/macaron');
+  await expect(page).toHaveURL('http://localhost:3000/pastries/8');
 
   await page.getByTestId('product-quantity').fill('3');
 
@@ -15,13 +15,33 @@ test('add to cart, change quantity, remove from cart', async ({ page }) => {
 
   await page.goto('http://localhost:3000/cart');
 
-  await expect(page).toHaveURL('https://localhost:3000/cart');
+  await expect(page).toHaveURL('http://localhost:3000/cart');
 
   await page.getByRole('button', { name: 'Remove' }).click();
 
-  // checkout flow
+  await page.getByRole('button', { name: 'Checkout' }).click();
 
-  // payment page
+  await page.getByTestId('checkout-first-name').fill('Liba');
 
-  // thank you page
+  await page.getByTestId('checkout-last-name').fill('Shapiro');
+
+  await page.getByTestId('checkout-email').fill('abc@gmail.com');
+
+  await page.getByTestId('checkout-address').fill('Kunzgasse 4/3');
+
+  await page.getByTestId('checkout-city').fill('Vienna');
+
+  await page.getByTestId('checkout-postal-code').fill('123');
+
+  await page.getByTestId('checkout-country').fill('Austria');
+
+  await page.getByTestId('checkout-credit-card').fill('123456789');
+
+  await page.getByTestId('checkout-expiration-date').fill('0124');
+
+  await page.getByTestId('checkout-security').fill('123');
+
+  await page.getByRole('button', { name: 'Confirm Order' }).click();
+
+  await expect(page).toHaveURL('http://localhost:3000/thanks');
 });
