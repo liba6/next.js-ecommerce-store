@@ -1,3 +1,4 @@
+import { type } from 'os';
 import {
   deleteCookie,
   getParsedCookie,
@@ -78,19 +79,30 @@ test('add or remove info from cookie', () => {
     { id: newItem5.id, amount: newItem5.amount },
   ]);
 
-  // update a cookie
+  // update a cookie - did not get chance to implement
+});
 
-  // expect(() => setStringifiedCookie(cookie2.key, [{cookie2.value}, {}])).not.toThrow();
-  // expect(getParsedCookie(cookie2.key)).toStrictEqual([
-  //   { id: newItem2.id, amount: 0 },
-  //   { id: newItem1.id, amount: 0 },
-  //   { id: newItem3.id, amount: newItem5.amount },
-  //  expect(() => setStringifiedCookie(cookie2.key, [newItem3])).not.toThrow();
-  //   ]);
-  // });
+// // test cart sum function
 
-  // // test cart sum function
+function sumCart((array) {
+  let total = 0;
+  array.forEach((item) => {
+    total += item.amount * item.price;
+  });
+  return total;
+}
 
-  // test('add sum total in cart', () => {
-  //const;
+type CartItem = {
+  price: number;
+  amount: number;
+}[];
+
+test('add sum total in cart', () => {
+  const cartItem: CartItem = [
+    { price: 10, amount: 3 },
+    { price: 20, amount: 2 },
+    { price: 30, amount: 3 },
+  ];
+
+  expect(sumCart(cartItem)).toBe('160');
 });
