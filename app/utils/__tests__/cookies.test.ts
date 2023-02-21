@@ -69,27 +69,28 @@ test('add or remove info from cookie', () => {
       { id: newItem1.id, amount: 0 },
     ],
   };
-  expect(() => setStringifiedCookie(cookie2.key, [{ id:2, amount: 0 },
-    { id: newItem1.id, amount: 0 },,newItem3])).not.toThrow();
+
+  const addtlCookie = [...cookie2.value, newItem5];
+  expect(() => setStringifiedCookie(cookie2.key, addtlCookie)).not.toThrow();
   expect(getParsedCookie(cookie2.key)).toStrictEqual([
     { id: newItem2.id, amount: 0 },
     { id: newItem1.id, amount: 0 },
-    { id: newItem3.id, amount: newItem3.amount },
+    { id: newItem5.id, amount: newItem5.amount },
   ]);
 
   // update a cookie
 
-  expect(() => setStringifiedCookie(cookie2.key, [{cookie2.value}, {}])).not.toThrow();
-  expect(getParsedCookie(cookie2.key)).toStrictEqual([
-    { id: newItem2.id, amount: 0 },
-    { id: newItem1.id, amount: 0 },
-    //   { id: newItem3.id, amount: newItem5.amount },
-    //  expect(() => setStringifiedCookie(cookie2.key, [newItem3])).not.toThrow();
-  ]);
+  // expect(() => setStringifiedCookie(cookie2.key, [{cookie2.value}, {}])).not.toThrow();
+  // expect(getParsedCookie(cookie2.key)).toStrictEqual([
+  //   { id: newItem2.id, amount: 0 },
+  //   { id: newItem1.id, amount: 0 },
+  //   { id: newItem3.id, amount: newItem5.amount },
+  //  expect(() => setStringifiedCookie(cookie2.key, [newItem3])).not.toThrow();
+  //   ]);
+  // });
+
+  // // test cart sum function
+
+  // test('add sum total in cart', () => {
+  //const;
 });
-
-// // test cart sum function
-
-// test('add sum total in cart', () => {
-  const;
- });
