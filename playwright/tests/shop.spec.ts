@@ -39,7 +39,7 @@ test('add to cart, change quantity, remove from cart', async ({ page }) => {
 
   await page.getByTestId('checkout-expiration-date').fill('0124');
 
-  await page.getByTestId('checkout-security').fill('123');
+  await page.getByTestId('checkout-security-code').fill('123');
 
   await page.getByRole('button', { name: 'Confirm Order' }).click();
 
