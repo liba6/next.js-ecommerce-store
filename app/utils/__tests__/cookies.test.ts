@@ -1,4 +1,3 @@
-import { type } from 'os';
 import {
   deleteCookie,
   getParsedCookie,
@@ -59,8 +58,6 @@ test('add or remove info from cookie', () => {
 
   // we add new cookie to existing cookie
 
-  const newItem3 = { id: 2, amount: 3 };
-  const newItem4 = { id: 2, amount: -3 };
   const newItem5 = { id: 2, amount: 5 };
 
   const cookie2 = {
@@ -84,7 +81,12 @@ test('add or remove info from cookie', () => {
 
 // // test cart sum function
 
-function sumCart((array) {
+type ArrayOfObj = {
+  amount: number;
+  price: number;
+};
+
+function sumCart(array: ArrayOfObj[]) {
   let total = 0;
   array.forEach((item) => {
     total += item.amount * item.price;

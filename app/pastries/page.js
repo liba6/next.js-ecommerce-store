@@ -26,7 +26,7 @@ export default async function PastriesPage() {
         <div className={styles.list}>
           {pastries.map((pastry) => {
             return (
-              <div key={pastry.id}>
+              <div key={`pastry-${pastry.id}`}>
                 <Link
                   data-test-id="product-{pastry.id}"
                   href={`/pastries/${pastry.id}`}
