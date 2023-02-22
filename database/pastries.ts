@@ -37,7 +37,7 @@ type Pastry = {
   name: string;
   price: number;
   description: string | null;
-};
+}[];
 
 // get all pastries
 
