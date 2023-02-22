@@ -90,7 +90,7 @@ export default async function RootLayout({ children }) {
               <div className={styles.cartContainer}>
                 <Link
                   data-test-id="cart-link"
-                  // className={styles.navbar}
+                  className={styles.navbar}
                   href="/cart"
                 >
                   <Image

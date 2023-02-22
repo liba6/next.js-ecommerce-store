@@ -8,7 +8,7 @@
 }
 
 .body {
-  font-family: Raleway;
+  font-family: Raleway, arial;
 }
 
 .input {
@@ -18,13 +18,13 @@
   margin-bottom: 0.25em;
   border: none;
   border-bottom: 1px solid peachpuff;
-  font-family: Raleway;
+  font-family: Raleway, arial;
   font-weight: 100;
   border-radius: 0.25em;
   margin-top: 10px;
   margin-left: 5px;
   width: 500px;
-  padding: 20px;
+  // padding: 20px;
 }
 
 .smlinput {
@@ -34,13 +34,13 @@
   margin-bottom: 0.25em;
   border: none;
   border-bottom: 1px solid peachpuff;
-  font-family: Raleway;
+  font-family: Raleway, Arial;
   font-weight: 100;
   border-radius: 0.25em;
   margin-top: 10px;
   margin-left: 5px;
   width: 150px;
-  padding: 20px;
+  // padding: 20px;
 }
 
 .form {
