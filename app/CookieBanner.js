@@ -2,11 +2,11 @@
 import styles from './layout.module.scss';
 
 import { useState } from 'react';
+import { getLocalStorage, setLocalStorage } from './utils/localStorage';
 
 export default function CookieBanner() {
-  const localStorageValue = JSON.parse(
-    localStorage.getItem('areCookiesTermsAccepted'),
-  );
+  const localStorageValue = getLocalStorage('areCookiesTermsAccepted');
+
   const initialState = localStorageValue === null ? false : localStorageValue;
 
   const [areCookiesTermsAccepted, setAreCookiesTermsAccepted] =
@@ -24,10 +24,7 @@ export default function CookieBanner() {
             className={styles.btn}
             onClick={() => {
               setAreCookiesTermsAccepted(true);
-              localStorage.setItem(
-                'areCookiesTermsAccepted',
-                JSON.stringify(true),
-              );
+              setLocalStorage('areCookiesTermsAccepted', JSON.stringify(true));
             }}
           >
             Accept
