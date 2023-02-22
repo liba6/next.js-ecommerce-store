@@ -35,7 +35,7 @@ import { sql } from './connect';
 type Pastry = {
   id: number;
   name: string;
-  price: number;
+  price: string;
   description: string;
 };
 
