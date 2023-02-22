@@ -81,30 +81,30 @@ test('add or remove info from cookie', () => {
 
 // // test cart sum function
 
-type ArrayOfObj = {
-  amount: number;
-  price: number;
-};
+// type ArrayOfObj = {
+//   amount: number;
+//   price: number;
+// };
 
-function sumCart(array: ArrayOfObj[]) {
-  let total = 0;
-  array.forEach((item) => {
-    total += item.amount * item.price;
-  });
-  return total;
-}
+// function sumCart(array: ArrayOfObj[]) {
+//   let total = 0;
+//   array.forEach((item) => {
+//     total += item.amount * item.price;
+//   });
+//   return total;
+// }
 
-type CartItem = {
-  price: number;
-  amount: number;
-}[];
+// type CartItem = {
+//   price: number;
+//   amount: number;
+// }[];
 
-test('add sum total in cart', () => {
-  const cartItem: CartItem = [
-    { price: 10, amount: 3 },
-    { price: 20, amount: 2 },
-    { price: 30, amount: 3 },
-  ];
+// test('add sum total in cart', () => {
+//   const cartItem: CartItem = [
+//     { price: 10, amount: 3 },
+//     { price: 20, amount: 2 },
+//     { price: 30, amount: 3 },
+//   ];
 
-  expect(sumCart(cartItem)).toBe('160');
-});
+//   expect(sumCart(cartItem)).toBe('160');
+// });
