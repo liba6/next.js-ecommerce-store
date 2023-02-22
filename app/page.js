@@ -49,8 +49,8 @@ export default async function HomePage() {
       <div>
         <Link href={`pastries/${pastries[3].id}`}>
           <Image
-            src="/macaroon.jpg"
-            alt="macaroon image"
+            src="/macaron.jpg"
+            alt="macaron image"
             height="300"
             width="300"
           />

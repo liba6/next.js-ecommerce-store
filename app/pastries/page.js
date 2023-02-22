@@ -22,7 +22,7 @@ export default async function PastriesPage() {
   return (
     <>
       <h1 className={styles.h1}>Pastries</h1>
-      <main>
+      <div>
         <div className={styles.list}>
           {pastries.map((pastry) => {
             return (
@@ -46,7 +46,7 @@ export default async function PastriesPage() {
             );
           })}
         </div>
-      </main>
+      </div>
     </>
   );
 }

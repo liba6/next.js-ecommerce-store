@@ -50,8 +50,8 @@
   height: 60px;
   width: 55px;
   position: absolute;
-  right: -1250px;
-  bottom: 170px;
+  right: 80px;
+  bottom: 175px;
 }
 
 .footer {
@@ -73,9 +73,6 @@
   position: relative;
   display: inline-block;
   cursor: pointer;
-}
-
-.popup .popuptext {
   width: 330px;
   background-color: white;
   color: #6d4833;
@@ -87,6 +84,7 @@
   top: -560px;
   margin-left: 350px;
 }
+
 .btn {
   padding: 7px;
   border-radius: 6px;
