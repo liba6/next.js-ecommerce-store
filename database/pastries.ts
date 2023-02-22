@@ -1,4 +1,3 @@
-// import fs from 'node:fs';
 import { cache } from 'react';
 import { sql } from './connect';
 
@@ -38,7 +37,7 @@ type Pastry = {
   name: string;
   price: number;
   description: string | null;
-}[];
+};
 
 // get all pastries
 
