@@ -18,12 +18,7 @@ export default async function RootLayout({ children }) {
   // console.log(pastries);
   return (
     <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Raleway:wght@300&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+      <head />
       <CookieBanner />
       <body className={styles.body}>
         <header className={styles.header}>
