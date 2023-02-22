@@ -5,7 +5,7 @@ export const metadata = {
   description: 'This is my thanks page',
 };
 
-export default function thanks() {
+export default function Thanks() {
   return (
     <div className={styles.div}>
       Thank you for your order! <br /> <br />
