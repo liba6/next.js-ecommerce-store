@@ -24,10 +24,12 @@ export default function CookieBanner() {
             className={styles.btn}
             onClick={() => {
               setAreCookiesTermsAccepted(true);
-              window.localStorage.setItem(
-                'areCookiesTermsAccepted',
-                JSON.stringify(true),
-              );
+              if (typeof window !== 'undefined') {
+                window.localStorage.setItem(
+                  'areCookiesTermsAccepted',
+                  JSON.stringify(true),
+                );
+              }
             }}
           >
             Accept
