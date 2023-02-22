@@ -8,10 +8,15 @@ A checkout page which displays the total and asks for shipping and payment infor
 A thank you page after checkout has been completed.
 The header will show a shopping cart with the current number of items.
 
-The technologies used:
+Technologies:
+React - Next.js is built on top of React, a popular front-end JavaScript library. React allows for the creation of reusable components and the efficient updating of the user interface.
 
-Next.js
-React.js
-Postgres
+Node.js - Next.js is a server-side rendering framework that runs on top of Node.js. Node.js provides a runtime environment for executing JavaScript code on the server.
 
-Indulge!
+TypeScript - Next.js supports TypeScript, a typed superset of JavaScript that can improve code quality and reduce errors.
+
+SQL - a query language for APIs that allows for efficient data fetching and reduces the number of requests needed to render a page.
+
+Playwright - is an open-source Node.js library that allows you to automate user interactions with web browsers.
+
+Enjoy!
