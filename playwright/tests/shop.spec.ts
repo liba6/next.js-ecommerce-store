@@ -5,7 +5,7 @@ test('add to cart, change quantity, remove from cart', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Accept' }).click();
 
-  await page.getByRole('link', { name: 'Macaron' }).click();
+  await page.getByTestId('product-macaron').click();
 
   await expect(page).toHaveURL('http://localhost:3000/pastries/8');
 
