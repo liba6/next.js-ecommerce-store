@@ -60,7 +60,7 @@ export default async function Cart() {
             <Image
               className={styles.img}
               data-test-id="product-image"
-              src={`/${pastry.name}.jpg`}
+              src={`/${pastry.name.toLowerCase()}.jpg`}
               alt={`${pastry}.name} image`}
               width="150"
               height="150"

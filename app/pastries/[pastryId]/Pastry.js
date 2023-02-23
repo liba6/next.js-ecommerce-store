@@ -18,6 +18,8 @@ export default function Pastry(props) {
           <Image
             className={styles.img}
             data-test-id="product-image"
+            //             src="/croissant.jpg"
+
             src={`/${props.pastry.name.toLowerCase()}.jpg`}
             alt={`${props.pastry}.name} image`}
             width="200"
