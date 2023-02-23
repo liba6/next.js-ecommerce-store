@@ -12,6 +12,7 @@ export const metadata = {
     template: '%s | Indulge',
   },
 };
+export const dynamic = 'force-dynamic';
 
 export default async function RootLayout({ children }) {
   const pastries = await getPastries();
