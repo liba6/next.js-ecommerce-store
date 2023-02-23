@@ -7,7 +7,7 @@ test('add to cart, change quantity, remove from cart', async ({ page }) => {
 
   await page.getByTestId('product-macaron').click();
 
-  await expect(page).toHaveURL('http://localhost:3000/pastries/8');
+  await expect(page).toHaveURL('http://localhost:3000/pastries/4');
 
   await page.getByTestId('product-quantity').fill('3');
 
